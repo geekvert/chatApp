@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    	<div class="lefCon"></div>
+	<div class="leftContainer"></div>
+	<div class="rightcontainer"></div>
 </body>
 </html>
