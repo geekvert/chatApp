@@ -1,0 +1,118 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #dddddd;
+}
+.leftContainer {
+    display: flex;
+    width: 60vw;
+    align-items: center;
+    flex-direction: column;
+}
+.rightContainer {
+    background-color: black;
+    display: flex;
+    width: 40vw;
+    justify-content: center;
+    align-items: center;
+}
+.login, .signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    width: 60%;
+    background-color: white;
+    border-radius: 16px;
+    height: 300px;
+}
+.loginForm, .signupForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 55%;
+    margin: 20px 0;
+}
+.signup {
+    display: none;
+}
+.signup {
+    height: 450px;
+}
+input {  
+    width: 100%;
+    border: 1px solid #aaaaaa;
+}
+input:focus {
+    outline: none;
+    border: 1px solid #aaaaaa;
+}
+#remember, #male, #female {
+    width: 14px;
+}
+.lName, .loginForm {
+    width: 50%;
+}
+.signupForm {
+    width: 60%;
+    height: 60%;
+}
+.lName {
+    font-size: 150%;
+}
+.small {
+    font-size: 80%;
+}
+.flex {
+    display: flex;
+    align-items: center;
+}
+.log {
+    font-weight: bold;
+}
+#loginbtn, #signupbtn, .signupEvent, .loginEvent {
+    cursor: pointer;
+}
+.signupEvent:hover, .loginEvent:hover {
+    border-bottom: 1px solid black;
+}
+#loginbtn, #signupbtn {
+    border: none;
+    border-radius: 20px;
+    padding: 4px;
+    background-color: #4FA845;
+    color: #ffffff;
+}
+#signupbtn {
+    margin-top: 10px;
+}
+#loginbtn:hover, #signupbtn:hover {
+    opacity: 0.8;
+}
+.welcome, .helps {
+    padding: 0.5em;
+    text-align: center;
+    font-size: 300%;
+}
+.welcome {
+    margin: 1em 0 0 0;
+}
+.helps {
+    font-weight: 100;
+}
+.social {
+    background-image: url("../assets/social.png");
+    width: 500px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+}
