@@ -38,23 +38,23 @@
 					<input type="text" name="name">
 				</div>
 				<div class="username">
-					<label class="small" for="username">Username</label><br>
+					<label class="small" for="username">Username<span class="Uerror small"> *username unavailable</span></label><br>
 					<input type="text" name="username">
 				</div>
 				<div class="email">
-					<label class="small" for="email">Email</label><br>
+					<label class="small" for="email">Email<span class="Eerror small"> *enter correct e-mail address</span></label><br>
 					<input class="emailGiven" type="email" name="email">
 				</div>
 				<div class="mobile">
-					<label class="small" for="mobile">Mobile number</label><br>
+					<label class="small" for="mobile">Mobile number<span class="Merror small"> *invalid mobile number</span></label><br>
 					<input class="mobileGiven" type="number" name="mobile">
 				</div>
 				<div class="password">
-					<label class="small" for="password">Password</label><br>
+					<label class="small" for="password">Password<span class="Perror small"> *more than 6 characters required</span></label><br>
 					<input class="pass" type="password" name="password">
 				</div>
 				<div class="confirm">
-					<label class="small" for="confirmPass">Confirm password</label><br>
+					<label class="small" for="confirmPass">Confirm password<span class="Cerror small"> *password mismatch</span></label><br>
 					<input class="conf" type="password" name="confirm">
 				</div>
 				<div class="small">
@@ -73,3 +73,5 @@
 	<script src="./js/login.js"></script>
 </body>
 </html>
+<?php
+?>

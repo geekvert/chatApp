@@ -39,44 +39,52 @@ var signupSubmit=function() {
     //append that red warning!
 
 }
-var error="<span>*username already taken</span>";
-
+//error code
 sel(".emailGiven").addEventListener("input", function(e) {
-    error="<span style=\"color:red\">*enter correct e-mail address</span>";
-    var email=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(sel(".emailGiven").value);    
+    var email=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(e.target.value);
     if (!email) {
-//        sel(".email>label").innerHtml+=error;
-
+        sel(".Eerror").style.display="inline";
         e.target.style.borderColor="red";
     }
     else {
+        sel(".Eerror").style.display="none";
         e.target.style.borderColor="#aaaaaa";
     }
 })
 sel(".mobileGiven").addEventListener("input", function(e) {
-    var mobile=/^[6789]\d{9}$/.test(sel(".mobileGiven").value);
+    var mobile=/^[6789]\d{9}$/.test(e.target.value);
     if (!mobile) {
+        sel(".Merror").style.display="inline";
         e.target.style.borderColor="red";
     }
     else {
+        sel(".Merror").style.display="none";
         e.target.style.borderColor="#aaaaaa";
     }
 })
 sel(".pass").addEventListener("input", function(e) {
+    var typedPass=e.target.value;
     var pass=/(?=.{7,})/.test(e.target.value);
     if (!pass) {
+        sel(".Perror").style.display="inline";
         e.target.style.borderColor="red";
     }
     else {
+        sel(".Perror").style.display="none";
         e.target.style.borderColor="#aaaaaa";
+    }
+    if (sel(".conf").value!=typedPass) {
+        sel(".Cerror").style.display="inline";
     }
 })
 sel(".conf").addEventListener("input", function(e) {
     var match=sel(".pass").value;
     if (e.target.value!=match) {
+        sel(".Cerror").style.display="inline";
         e.target.style.borderColor="red";
     }
     else {
+        sel(".Cerror").style.display="none";
         e.target.style.borderColor="#aaaaaa";
     }
 })

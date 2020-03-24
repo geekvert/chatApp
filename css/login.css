@@ -43,8 +43,6 @@ body {
 }
 .signup {
     display: none;
-}
-.signup {
     height: 450px;
 }
 input {  
@@ -63,7 +61,7 @@ input:focus {
 }
 .signupForm {
     width: 60%;
-    height: 60%;
+    height: 75%;
 }
 .lName {
     font-size: 150%;
@@ -115,4 +113,9 @@ input:focus {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
+}
+
+.Eerror, .Merror, .Perror, .Cerror, .Uerror {
+    display: none;
+    color: red;
 }
