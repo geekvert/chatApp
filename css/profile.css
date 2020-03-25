@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.name {
+    border-bottom: 1px solid #aaaaaa;
+}
+img {
+    border-radius: 100px;
+}
+.container {
+    width: 50%;
+}
+.box {
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    border-radius: 10px;
+    margin: 0.5em;
+    width: 60%;
+}
+span {
+    font-weight: 800;
+}
+input {
+    border: none;
+    outline: none;
+}

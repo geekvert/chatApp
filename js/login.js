@@ -1,6 +1,6 @@
 var txt="Welcome to R chat";
 var i=0;
-var speed=60;
+var speed=40;
 function type1() {
     if (i<txt.length) {
         document.querySelector(".welcome").textContent+=txt.charAt(i);
@@ -106,5 +106,12 @@ sel(".conf").addEventListener("input", function(e) {
     }
     else {
         e.target.style.borderColor="#aaaaaa";
+    }
+})
+sel("#loginbtn").addEventListener("click", function(e) {
+    var username=sel("#username").value;
+    var password=sel("#password").value;
+    if (username==""||password=="") {
+        e.preventDefault();
     }
 })

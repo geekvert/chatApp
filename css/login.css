@@ -114,11 +114,6 @@ input:focus {
     background-size: cover;
     border-radius: 20px;
 }
-
-.Nerror, .Eerror, .Merror, .Perror, .Cerror, .Uerror {
-    display: none;
-    color: red;
-}
 .std {
     font-size: small;
     color: red;
