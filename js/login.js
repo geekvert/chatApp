@@ -1,6 +1,6 @@
 var txt="Welcome to R chat";
 var i=0;
-var speed=70;
+var speed=60;
 function type1() {
     if (i<txt.length) {
         document.querySelector(".welcome").textContent+=txt.charAt(i);
@@ -35,30 +35,54 @@ sel(".loginEvent").addEventListener("click", function(e) {
 })
 
 //CAUTION! validation code ahead
-var signupSubmit=function() {
-    //append that red warning!
 
-}
+//gender must be selected
+
+//if any field is empty show empty error
+
+sel("#signupbtn").addEventListener("click", function(e) {
+    var i=0, j=0;
+    var sis=document.querySelectorAll(".si");
+    sis.forEach(function(elem){
+        if (elem.style.borderColor=="red") {
+            i++;
+        }
+    })
+    document.querySelectorAll("input[name='gender']").forEach(function(elem){
+        if (elem.checked==false) {
+            j++;
+        }
+    })
+    if (i>0 || j==2) {
+        e.preventDefault();
+        alert("Please, fill all the input fields correctly.");
+    }
+})
 //error code
-sel(".emailGiven").addEventListener("input", function(e) {
-    var email=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(e.target.value);
-    if (!email) {
-        sel(".Eerror").style.display="inline";
+sel(".nameGiven").addEventListener("input", function(e) {
+    var name=/^[a-zA-Z ]*$/.test(e.target.value);
+    if (!name) {
         e.target.style.borderColor="red";
     }
     else {
-        sel(".Eerror").style.display="none";
+        e.target.style.borderColor="#aaaaaa";
+    }
+})
+sel(".emailGiven").addEventListener("input", function(e) {
+    var email=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(e.target.value);
+    if (!email) {
+        e.target.style.borderColor="red";
+    }
+    else {
         e.target.style.borderColor="#aaaaaa";
     }
 })
 sel(".mobileGiven").addEventListener("input", function(e) {
     var mobile=/^[6789]\d{9}$/.test(e.target.value);
     if (!mobile) {
-        sel(".Merror").style.display="inline";
         e.target.style.borderColor="red";
     }
     else {
-        sel(".Merror").style.display="none";
         e.target.style.borderColor="#aaaaaa";
     }
 })
@@ -66,25 +90,21 @@ sel(".pass").addEventListener("input", function(e) {
     var typedPass=e.target.value;
     var pass=/(?=.{7,})/.test(e.target.value);
     if (!pass) {
-        sel(".Perror").style.display="inline";
         e.target.style.borderColor="red";
     }
     else {
-        sel(".Perror").style.display="none";
         e.target.style.borderColor="#aaaaaa";
     }
     if (sel(".conf").value!=typedPass) {
-        sel(".Cerror").style.display="inline";
+        sel(".conf").style.borderColor="red";
     }
 })
 sel(".conf").addEventListener("input", function(e) {
     var match=sel(".pass").value;
     if (e.target.value!=match) {
-        sel(".Cerror").style.display="inline";
         e.target.style.borderColor="red";
     }
     else {
-        sel(".Cerror").style.display="none";
         e.target.style.borderColor="#aaaaaa";
     }
 })

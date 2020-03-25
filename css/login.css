@@ -115,7 +115,11 @@ input:focus {
     border-radius: 20px;
 }
 
-.Eerror, .Merror, .Perror, .Cerror, .Uerror {
+.Nerror, .Eerror, .Merror, .Perror, .Cerror, .Uerror {
     display: none;
+    color: red;
+}
+.std {
+    font-size: small;
     color: red;
 }
