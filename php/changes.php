@@ -16,7 +16,6 @@ if ($empty) {
 else {
     $update="UPDATE rahul_users SET about='$about', age='$age', email='$email', mobile='$mobile', education='$education', address='$address' WHERE usrename='$username';";
     $conn->query($update);
-    //echo "qwerty";
 }
 $check="SELECT * FROM rahul_users INNER JOIN rahul_profiles ON rahul_users\.id=rahul_profiles\.user_id WHERE username='$username';";
 $result=$conn->query($check)->fetch_assoc();
