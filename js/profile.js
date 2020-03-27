@@ -22,8 +22,10 @@ document.querySelector(".save").addEventListener("click", function(e) {
     var xhttp=new XMLHttpRequest();
     xhttp.onreadystatechange=function() {
         if (this.readyState==4 && this.status==200) {
-            console.log(this.responseText);
-            alert("Please complete your profile to access all featues.");
+            var res1=this.responseText;
+            if (res1.includes("error101")) {
+                alert("Please complete your profile to access all featues of the application!");
+            }
         }
     }
     xhttp.open("POST", "../php/changes.php", true);
@@ -37,7 +39,10 @@ document.querySelector(".save").addEventListener("click", function(e) {
     var picObj=new XMLHttpRequest();
     picObj.onreadystatechange=function() {
         if (this.readyState==4 && this.status==200) {
-            console.log(this.responseText);
+            var res2=this.responseText;
+            if (res2.includes("error102")) {
+                alert("Please upload your profile picture");
+            }
         }
     }
     picObj.open("POST", "../php/changes.php", true);

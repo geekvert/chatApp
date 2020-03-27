@@ -7,15 +7,17 @@ $mobile=$_POST["mobile"];
 $education=$_POST["education"];
 $address=$_POST["address"];
 
-$empty=empty($about) or empty($age) or empty($email) or empty($mobile) or empty($education) or empty($address);
-echo $username+" "+$about+" "+$age+" "+$email+" "+$mobile+" "+$education+" "+$address;
-if ($empty) {
-    die("empty error");
-}
 require ("./connection.php");
-$update="UPDATE rahul_users SET email='$email',mobile='$mobile',education='$education',address='$address',age='$age',about='$about' WHERE username='$username';";
-$conn->query($update);
-
+$empty=empty($about) or empty($age) or empty($email) or empty($mobile) or empty($education) or empty($address);
+//echo $username." ".$about." ".$age." ".$email." ".$mobile." ".$education." ".$address;
+if ($empty) {
+    echo "error101";
+}
+else {
+    $update="UPDATE rahul_users SET about='$about', age='$age', email='$email', mobile='$mobile', education='$education', address='$address' WHERE usrename='$username';";
+    $conn->query($update);
+    //echo "qwerty";
+}
 $check="SELECT * FROM rahul_users INNER JOIN rahul_profiles ON rahul_users\.id=rahul_profiles\.user_id WHERE username='$username';";
 $result=$conn->query($check)->fetch_assoc();
 foreach ($result as $key => $value) {
@@ -24,13 +26,12 @@ foreach ($result as $key => $value) {
     }
 }
 if ($check=="NO") {
-    echo "empty error02";
+    echo "error102";
 }
 else {
     $check="YES";
 }
-echo "chal gaya";
-if (!empty($_FILES["images"]["name"])) {
+if (!empty($_FILES["images"])) {
     $target_file="./profile/".basename($_FILES["image"]["name"]);
     $fileType=strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     if ($fileType!="jpg"||$fileType!="png"||$fileType!="jpeg") {

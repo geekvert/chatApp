@@ -6,7 +6,6 @@ if (empty($_SESSION["username"])) {
 else {
     $username=$_SESSION["username"];
 }
-
 require ("./connection.php");
 $getData="SELECT * FROM rahul_users WHERE username='$username';";
 $row=$conn->query($getData)->fetch_assoc();
@@ -46,7 +45,7 @@ else {
         </div>
         <div class="box"><span>Username</span>: <div class="field"><?php echo $row["username"]; ?></div></div>
         <div class="box"><span>Gender</span>: <?php echo $row["gender"]; ?></div>
-        <div class="box"><span>About</span>: <div class="field"><?php echo $row["name"]; ?></div> <i class="fas fa-pen"></i></div>
+        <div class="box"><span>About</span>: <div class="field"><?php echo $row["about"]; ?></div> <i class="fas fa-pen"></i></div>
         <div class="box"><span>Age </span>(in years): <div class="field"> <?php echo $row["age"]; ?> </div> <i class="fas fa-pen"></i></div>
         <div class="box"><span>E-mail</span>: <div class="field"><?php echo $row["email"]; ?></div><i class="fas fa-pen"></i></div>
         <div class="box"><span>Mobile</span>: <div class="field"><?php echo $row["mobile"]; ?></div><i class="fas fa-pen"></i></div>
