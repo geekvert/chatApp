@@ -15,7 +15,7 @@ $check="SELECT * FROM rahul_profiles WHERE user_id=(SELECT id from rahul_users W
 $res=$conn->query($check)->fetch_assoc();
 //print_r($res);
 if ($res["complete"]=="YES") {
-    //header("Location: ./dashboard.php");
+    header("Location: ./dashboard.php");
 }
 else {
     echo "<script>alert('Please complete your profile to access all features of the application!')</script>";
@@ -24,7 +24,7 @@ if (empty($res["profilePic"])) {
     $imageSource="../assets/avatars/avatar.png";
 }
 else {
-    $imageSource=$res["profilePic"];
+    $imageSource="./profile/".$res["profilePic"];
 }
 ?>
 <!DOCTYPE html>
@@ -39,14 +39,16 @@ else {
 <body>
     <div class="container img">
         <div class="img">
-            <img src=<?php echo $imageSource; ?> alt="profile picture" width="150px" height="150px"></img>
-            <input class="profilePic" type="file">
+            <img id="dp" src="" alt="profile picture" width="150px" height="150px"></img>
+            <form enctype="multipart/form-data" method="post">
+                <input class="profilePic" type="file">
+            </form>
             <div class="name"><?php echo $row["name"]; ?></i></div>
         </div>
         <div class="box"><span>Username</span>: <div class="field"><?php echo $row["username"]; ?></div></div>
         <div class="box"><span>Gender</span>: <?php echo $row["gender"]; ?></div>
         <div class="box"><span>About</span>: <div class="field"><?php echo $row["about"]; ?></div> <i class="fas fa-pen"></i></div>
-        <div class="box"><span>Age </span>(in years): <div class="field"> <?php echo $row["age"]; ?> </div> <i class="fas fa-pen"></i></div>
+        <div class="box"><span>Age</span>(in years):<div class="field"><?php echo $row["age"]; ?></div> <i class="fas fa-pen"></i></div>
         <div class="box"><span>E-mail</span>: <div class="field"><?php echo $row["email"]; ?></div><i class="fas fa-pen"></i></div>
         <div class="box"><span>Mobile</span>: <div class="field"><?php echo $row["mobile"]; ?></div><i class="fas fa-pen"></i></div>
         <div class="box"><span>Education</span>: <div class="field"><?php echo $row["education"]; ?></div><i class="fas fa-pen"></i></div>
@@ -54,5 +56,8 @@ else {
         <button class="save">Save changes</button>
     </div>
     <script src="../js/profile.js"></script>
+    <script>
+        document.querySelector("#dp").src=<?php echo '"'.$imageSource.'"'; ?>;
+    </script>
 </body>
 </html>
