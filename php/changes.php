@@ -7,13 +7,13 @@ $mobile=$_POST["mobile"];
 $education=$_POST["education"];
 $address=$_POST["address"];
 
-require ("./connection.php");
 $empty=empty($about) or empty($age) or empty($email) or empty($mobile) or empty($education) or empty($address);
 if ($empty) {
-    die("error101");
+    echo("error101");
 }
+require ("./connection.php");
 $update="UPDATE rahul_users SET email='$email',mobile='$mobile',education='$education',address='$address',age='$age',about='$about' WHERE username='$username';";
-if ($conn->query($upload)) {
+if ($conn->query($update)) {
     $check="SELECT * FROM rahul_users INNER JOIN rahul_profiles ON rahul_users\.id=rahul_profiles\.user_id WHERE username='$username';";
     $result=$conn->query($check)->fetch_assoc();
     foreach ($result as $key => $value) {
