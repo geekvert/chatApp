@@ -35,11 +35,6 @@ sel(".loginEvent").addEventListener("click", function(e) {
 })
 
 //CAUTION! validation code ahead
-
-//gender must be selected
-
-//if any field is empty show empty error
-
 sel("#signupbtn").addEventListener("click", function(e) {
     var i=0, j=0;
     var sis=document.querySelectorAll(".si");
@@ -58,7 +53,23 @@ sel("#signupbtn").addEventListener("click", function(e) {
         alert("Please, fill all the input fields correctly.");
     }
 })
-//error code
+sel("#uName").addEventListener("input", function(e) {
+    xhttp=new XMLHttpRequest();
+    xhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+            if (this.responseText=="userExists") {
+                e.target.style.borderColor="red";
+                e.target.title="username already exists";
+            }
+            else {
+                e.target.style.borderColor="#008000";
+            }
+        }
+    }
+    xhttp.open("POST", "./php/uNameValid.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("username="+e.target.value);
+})
 sel(".nameGiven").addEventListener("input", function(e) {
     var name=/^[a-zA-Z ]*$/.test(e.target.value);
     if (!name) {

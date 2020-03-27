@@ -82,7 +82,7 @@ function signup() {
 	$confirm=sanitize($_POST["confirm"]);
 	$gender=sanitize($_POST["gender"]);
 	
-	$empty=empty($name) or  empty($username) or empty($email) or empty($mobile) or empty($password) or empty($confirm) or empty($gender);
+	$empty=empty($name) or empty($username) or empty($email) or empty($mobile) or empty($password) or empty($confirm) or empty($gender);
 
 	if ($empty) {
 		global $emptyError;
@@ -162,7 +162,7 @@ function signup() {
 				</div>
 				<div class="username">
 					<label class="small" for="username">Username<span class="Uerror small"><?php echo $Uerror; ?></span></label><br>
-					<input class="si" type="text" name="username">
+					<input id="uName" class="si" type="text" name="username">
 				</div>
 				<div class="email">
 					<label class="small" for="email">Email<span class="Eerror small"><?php echo $Eerror; ?></span></label><br>
