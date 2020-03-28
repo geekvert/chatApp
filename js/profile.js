@@ -29,9 +29,6 @@ document.querySelector(".save").addEventListener("click", function(e) {
             if (res1.includes("dashboard")) {
                 window.location.href="../php/dashboard.php";
             }
-            else if (res1.includes("empty error")) {
-                alert("Please complete your profile to access all features of the application!");
-            }
         }
     }
     xhttp.open("POST", "../php/changeInfo.php", true);
@@ -55,6 +52,7 @@ document.querySelector(".save").addEventListener("click", function(e) {
             else if (res2.includes("only images are allowed")) {
                 alert("Only images are allowed!");
             }
+            console.log(res2);
         }
     }
     picObj.open("POST", "../php/changePic.php", true);

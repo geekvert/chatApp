@@ -1,11 +1,11 @@
 <?php
-$username=$_POST["username"];
-$about=$_POST["about"];
-$age=$_POST["age"];
-$email=$_POST["email"];
-$mobile=$_POST["mobile"];
-$education=$_POST["education"];
-$address=$_POST["address"];
+$username=htmlspecialchars($_POST["username"]);
+$about=htmlspecialchars($_POST["about"]);
+$age=htmlspecialchars($_POST["age"]);
+$email=htmlspecialchars($_POST["email"]);
+$mobile=htmlspecialchars($_POST["mobile"]);
+$education=htmlspecialchars($_POST["education"]);
+$address=htmlspecialchars($_POST["address"]);
 
 $empty=empty($about) or empty($age) or empty($email) or empty($mobile) or empty($education) or empty($address);
 if ($empty) {

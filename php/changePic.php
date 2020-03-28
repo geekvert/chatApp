@@ -16,9 +16,18 @@ if (!empty($_FILES["images"])) {
         if (move_uploaded_file($_FILES["images"]["tmp_name"][0], $target_file)) {
             echo "successfully uploaded";
         }
-        $fileName=basename( $_FILES["images"]["name"][0]);
-        
-        $insertPic="UPDATE rahul_profiles SET profilePic='$fileName' WHERE user_id=(SELECT id from rahul_users WHERE username='$username');";
+        $fileName=basename($_FILES["images"]["name"][0]);
+
+        //checking if image exists
+        $imgCheck="SELECT * FROM rahul_profiles WHERE user_id=(SELECT id from rahul_users WHERE username='$username');";
+        if (empty($conn->query($imgCheck)->fetch_assoc())) {
+            $getId="SELECT id FROM rahul_users WHERE username='$username';";
+            $userId=$conn->query($getId)->fetch_assoc()["id"];
+            $insertPic="INSERT INTO rahul_profiles(user_id,profilePic) VALUES($userId,'$fileName');";
+        }
+        else {
+            $insertPic="UPDATE rahul_profiles SET profilePic='$fileName' WHERE user_id=(SELECT id from rahul_users WHERE username='$username');";
+        }
         $conn->query($insertPic);
     }
     else {
