@@ -6,3 +6,6 @@ document.querySelectorAll(".user").forEach(function(elem) {
 document.querySelector(".logoutbtn").addEventListener("click", function(e) {
     window.location.href="../php/logout.php";
 })
+document.querySelector(".pro").addEventListener("click", function(e) {
+    window.location.href="../php/profile.php";
+})

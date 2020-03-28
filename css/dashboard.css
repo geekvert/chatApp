@@ -14,16 +14,19 @@ body {
     top: 0;
     z-index: 1;
 }
-.logoutbtn {
+.use {
     border: none;
     font-size: 120%;
     background-color: #ffffff;
     position: absolute;
     right: 0;
 }
-.logoutbtn:hover {
+.use:hover {
     cursor: pointer;
     border-bottom: 1px solid black;
+}
+.pro {
+    transform: translateY(40px);
 }
 .hello {
     display: inline-block;

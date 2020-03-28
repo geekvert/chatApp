@@ -36,7 +36,8 @@ $result=$conn->query($getUsers);
 <body>
     <header class="header">R chat, a global network!</header>
     <div class="hello"></div>
-    <button class="logoutbtn">Logout</button>
+    <button class="logoutbtn use">Logout</button>
+    <button class="pro use">Edit profile</button>
 
     <div class="container">
         <?php while ($row=$result->fetch_assoc()) {
