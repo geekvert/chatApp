@@ -48,7 +48,8 @@ foreach ($result as $key => $value) {
 if ($complete=="NO") {
     echo "empty error";
 }
-else if ($complete=="YES") {
+else {
+    $complete="YES";
     echo "dashboard";
 }
 $completion="UPDATE rahul_profiles SET complete='$complete' WHERE user_id=(SELECT id from rahul_users WHERE username='$username');";

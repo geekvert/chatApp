@@ -14,6 +14,8 @@ function sanitize($data) {
 }
 $receiver=sanitize($_POST["receiver"]);
 $message=sanitize($_POST["message"]);
+echo $receiver;
+echo $message;
 
 require ("./connection.php");
 //getting ids of sender and receiver
@@ -22,6 +24,16 @@ $sender_id=$conn->query($q1)->fetch_assoc()["id"];
 $q2="SELECT id FROM rahul_users WHERE username='$receiver';";
 $receiver_id=$conn->query($q2)->fetch_assoc()["id"];
 
+echo $sender_id;
+echo $receiver_id;
+
 $insMess="INSERT INTO rahul_messages(sender_id, receiver_id, message) VALUES('$sender_id', '$receiver_id', '$message');";
-$conn->query($insMess);
+echo $insMess;	
+if($conn->query($insMess)) {
+	echo "success";
+	header("Location: ./dashboard.php");
+}
+else {
+	header("Location: ./error.php");
+}
 ?>

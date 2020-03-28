@@ -13,8 +13,9 @@ if (isset($_COOKIE["rchat"])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>R chat</title>
+	<title>Welcome to R chat</title>
 	<link rel="stylesheet" href="./css/login.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/f6992e24ac.js" crossorigin="anonymous"></script>
 </head>
@@ -90,21 +91,23 @@ function signup() {
 	}
 	//validating input fields
 	if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+		global $Nerror;
 		$Nerror=" *invalid name";
 	}
-	if (!empty("username")) {
-		//check for overlapping username.
-	}
 	if (!preg_match("/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/", $email)) {
+		global $Eerror;
 		$Eerror=" *enter correct e-mail address";
 	}
 	if (!preg_match("/^[6789]\d{9}$/", $mobile)) {
+		global $Merror;
 		$Merror=" *invalid mobile number";
 	}
 	if (!preg_match("/(?=.{7,})/", $password)) {
+		global $Perror;
 		$Perror=" *more than 6 characters required";
 	}
 	if ($password!=$confirm) {
+		global $Cerror;
 		$Cerror=" *password mismatch";
 	}
 
