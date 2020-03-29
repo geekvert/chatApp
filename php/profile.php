@@ -14,12 +14,18 @@ $row=$conn->query($getData)->fetch_assoc();
 $check="SELECT * FROM rahul_profiles WHERE user_id=(SELECT id from rahul_users WHERE username='$username');";
 $res=$conn->query($check)->fetch_assoc();
 //print_r($res);
-if ($res["complete"]=="YES") {
-    header("Location: ./dashboard.php");
-}
+
+if ($_GET["q"]=)
 else {
-    echo "<script>alert('Please complete your profile to access all features of the application!')</script>";
+    if ($res["complete"]=="YES") {
+        header("Location: ./dashboard.php");
+    }
+    else {
+        echo "<script>alert('Please complete your profile to access all features of the application!')</script>";
+    }
 }
+
+//getting profilePic
 if (empty($res["profilePic"])) {
     $imageSource="../assets/avatars/avatar.png";
 }
