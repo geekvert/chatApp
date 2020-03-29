@@ -1,5 +1,6 @@
 <?php
-setcookie("rchat", "", time()-3600);
+session_unset();
 session_destroy();
-header("Location: ../index.php?q=");
+setcookie("rchat", "", time()-3600);
+header("Location: ../index.php");
 ?>

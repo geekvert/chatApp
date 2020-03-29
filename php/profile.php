@@ -15,8 +15,7 @@ $check="SELECT * FROM rahul_profiles WHERE user_id=(SELECT id from rahul_users W
 $res=$conn->query($check)->fetch_assoc();
 //print_r($res);
 
-if ($_GET["q"]=)
-else {
+if ($_GET["q"]!="profile") {
     if ($res["complete"]=="YES") {
         header("Location: ./dashboard.php");
     }
