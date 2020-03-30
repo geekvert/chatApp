@@ -4,7 +4,7 @@ A chatting application build with php.
 ## Setup instructions
 Create three tables rahul_users, rahul_profiles, rahul_messages according to gin schemas.
 
-# Table schemas
+### Table schemas
 rahul_users
 ```sql
 +-----------+--------------+------+-----+---------+----------------+
